@@ -1,0 +1,59 @@
+package utils
+
+import (
+	"freelancing/models"
+	"strings"
+)
+
+// BubbleSortByJudul sorts projects by title using bubble sort (case-insensitive)
+func BubbleSortByJudul(proyekList *[]models.Proyek) {
+	n := len(*proyekList)
+	for i := 0; i < n-1; i++ {
+		for j := 0; j < n-i-1; j++ {
+			if strings.ToLower((*proyekList)[j].Judul) > strings.ToLower((*proyekList)[j+1].Judul) {
+				(*proyekList)[j], (*proyekList)[j+1] = (*proyekList)[j+1], (*proyekList)[j]
+			}
+		}
+	}
+}
+
+// InsertionSortByID sorts projects by ID using insertion sort
+func InsertionSortByID(proyekList *[]models.Proyek) {
+	for i := 1; i < len(*proyekList); i++ {
+		key := (*proyekList)[i]
+		j := i - 1
+		for j >= 0 && (*proyekList)[j].ID > key.ID {
+			(*proyekList)[j+1] = (*proyekList)[j]
+			j--
+		}
+		(*proyekList)[j+1] = key
+	}
+}
+
+// getStatusOrder returns a numeric value for status ordering
+func getStatusOrder(status string) int {
+	switch strings.ToLower(status) {
+	case "pending":
+		return 1
+	case "ongoing":
+		return 2
+	case "selesai":
+		return 3
+	default:
+		return 4
+	}
+}
+
+// SelectionSortByStatus sorts projects by status using selection sort
+func SelectionSortByStatus(proyekList *[]models.Proyek) {
+	n := len(*proyekList)
+	for i := 0; i < n-1; i++ {
+		minIdx := i
+		for j := i + 1; j < n; j++ {
+			if getStatusOrder((*proyekList)[j].Status) < getStatusOrder((*proyekList)[minIdx].Status) {
+				minIdx = j
+			}
+		}
+		(*proyekList)[i], (*proyekList)[minIdx] = (*proyekList)[minIdx], (*proyekList)[i]
+	}
+}
