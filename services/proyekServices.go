@@ -128,7 +128,7 @@ func EditProyek(proyekList *[]models.Proyek) {
 	searchInput, _ = reader.ReadString('\n')
 	searchInput = strings.TrimSpace(searchInput)
 
-	proyek, found := utils.SequentialSearch(*proyekList, searchInput)
+	proyek, found := utils.SeqSearch(*proyekList, searchInput)
 	if !found {
 		fmt.Println("Proyek tidak ditemukan.")
 		return
@@ -226,7 +226,7 @@ func HapusProyek(proyekList *[]models.Proyek) {
 	searchInput, _ = reader.ReadString('\n')
 	searchInput = strings.TrimSpace(searchInput)
 
-	proyek, found := utils.SequentialSearch(*proyekList, searchInput)
+	proyek, found := utils.SeqSearch(*proyekList, searchInput)
 	if !found {
 		fmt.Println("Proyek tidak ditemukan.")
 		return
@@ -287,7 +287,7 @@ func CariProyek(proyekList []models.Proyek) {
 		fmt.Print("Masukkan ID proyek yang dicari: ")
 		searchInput, _ = reader.ReadString('\n')
 		searchInput = strings.TrimSpace(searchInput)
-		hasil, found = utils.SequentialSearch(proyekList, searchInput)
+		hasil, found = utils.SeqSearch(proyekList, searchInput)
 	case "2":
 		fmt.Print("Masukkan nama proyek yang dicari: ")
 		searchInput, _ = reader.ReadString('\n')
@@ -295,7 +295,7 @@ func CariProyek(proyekList []models.Proyek) {
 		proyekTerurut := make([]models.Proyek, len(proyekList))
 		copy(proyekTerurut, proyekList)
 		utils.BubbleSortByJudul(&proyekTerurut)
-		hasil, found = utils.BinarySearchByName(proyekTerurut, searchInput)
+		hasil, found = utils.BinSearch(proyekTerurut, searchInput)
 	default:
 		fmt.Println("Pilihan tidak valid!")
 		return

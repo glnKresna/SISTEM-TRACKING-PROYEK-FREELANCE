@@ -6,7 +6,7 @@ import (
 )
 
 // Sequential search untuk mencari proyek berdasarkan ID
-func SequentialSearch(proyekList []models.Proyek, id string) (models.Proyek, bool) {
+func SeqSearch(proyekList []models.Proyek, id string) (models.Proyek, bool) {
 	for _, proyek := range proyekList {
 		if proyek.ID == id {
 			return proyek, true
@@ -16,7 +16,7 @@ func SequentialSearch(proyekList []models.Proyek, id string) (models.Proyek, boo
 }
 
 // Binary search untuk mencari proyek berdasarkan nama proyek
-func BinarySearchByName(proyekList []models.Proyek, nama string) (models.Proyek, bool) {
+func BinSearch(proyekList []models.Proyek, nama string) (models.Proyek, bool) {
 	nama = strings.ToLower(nama)
 	left := 0
 	right := len(proyekList) - 1
