@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-// BubbleSortByJudul sorts projects by title using bubble sort (case-insensitive)
+// Urutkan berdasarkan judul dengan bubble sort
 func BubbleSortByJudul(proyekList *[]models.Proyek) {
 	n := len(*proyekList)
 	for i := 0; i < n-1; i++ {
@@ -17,7 +17,7 @@ func BubbleSortByJudul(proyekList *[]models.Proyek) {
 	}
 }
 
-// InsertionSortByID sorts projects by ID using insertion sort
+// Mengurutkan berdasarkan ID dengan insertion sort
 func InsertionSortByID(proyekList *[]models.Proyek) {
 	for i := 1; i < len(*proyekList); i++ {
 		key := (*proyekList)[i]
@@ -30,8 +30,8 @@ func InsertionSortByID(proyekList *[]models.Proyek) {
 	}
 }
 
-// getStatusOrder returns a numeric value for status ordering
-func getStatusOrder(status string) int {
+// Mengurutkan berdasarkan status dengan urutan Pending > Ongoing > Selesai
+func urutanStatus(status string) int {
 	switch strings.ToLower(status) {
 	case "pending":
 		return 1
@@ -44,13 +44,13 @@ func getStatusOrder(status string) int {
 	}
 }
 
-// SelectionSortByStatus sorts projects by status using selection sort
+// Mengurutkan berdasarkan status dengan selection sort
 func SelectionSortByStatus(proyekList *[]models.Proyek) {
 	n := len(*proyekList)
 	for i := 0; i < n-1; i++ {
 		minIdx := i
 		for j := i + 1; j < n; j++ {
-			if getStatusOrder((*proyekList)[j].Status) < getStatusOrder((*proyekList)[minIdx].Status) {
+			if urutanStatus((*proyekList)[j].Status) < urutanStatus((*proyekList)[minIdx].Status) {
 				minIdx = j
 			}
 		}

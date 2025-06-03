@@ -1,4 +1,3 @@
-# Go build artifacts
 *.exe
 *.exe~
 *.dll
@@ -7,21 +6,16 @@
 *.test
 *.out
 
-# Build and binary folders
 /bin/
 /build/
 
-# Dependency directories (if using vendoring)
 vendor/
 
-# VS Code settings folder
 .vscode/
 
-# Logs and temp files
 *.log
 *.tmp
 *.swp
 
-# OS-specific files
 .DS_Store
 Thumbs.db
