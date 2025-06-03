@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-// TambahProyek adds a new project
+// Fungsi tambah proyek
 func TambahProyek(proyekList *[]models.Proyek) {
 	var judul, klien, status, catatan string
 	reader := bufio.NewReader(os.Stdin)
@@ -184,8 +184,8 @@ func EditProyek(proyekList *[]models.Proyek) {
 	input, _ = reader.ReadString('\n')
 	input = strings.TrimSpace(input)
 	if input != "" {
-		if formattedDate := utils.FormatDate(input); formattedDate != "" {
-			target.TanggalTerima = formattedDate
+		if tanggalTerformat := utils.FormatDate(input); tanggalTerformat != "" {
+			target.TanggalTerima = tanggalTerformat
 		} else {
 			fmt.Println("Format tanggal tidak valid! Tanggal tidak diubah.")
 		}
@@ -195,8 +195,8 @@ func EditProyek(proyekList *[]models.Proyek) {
 	input, _ = reader.ReadString('\n')
 	input = strings.TrimSpace(input)
 	if input != "" {
-		if formattedDate := utils.FormatDate(input); formattedDate != "" {
-			target.Deadline = formattedDate
+		if tanggalTerformat := utils.FormatDate(input); tanggalTerformat != "" {
+			target.Deadline = tanggalTerformat
 		} else {
 			fmt.Println("Format tanggal tidak valid! Deadline tidak diubah.")
 		}

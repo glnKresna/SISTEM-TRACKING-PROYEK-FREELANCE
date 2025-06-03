@@ -27,16 +27,16 @@ func FormatDate(input string) string {
 	return hari + "/" + bulan + "/" + tahun
 }
 
-// InputDate prompts for and validates a date input
-func InputDate(reader *bufio.Reader, prompt string) string {
+// Fungsi input & validasi tanggal
+func InputDate(reader *bufio.Reader, inputTanggal string) string {
 	for {
-		fmt.Print(prompt)
+		fmt.Print(inputTanggal)
 		tanggal, _ := reader.ReadString('\n')
 		tanggal = strings.TrimSpace(tanggal)
 
-		formattedDate := FormatDate(tanggal)
-		if formattedDate != "" {
-			return formattedDate
+		tanggalTerformat := FormatDate(tanggal)
+		if tanggalTerformat != "" {
+			return tanggalTerformat
 		}
 		fmt.Println("Format tanggal tidak valid! Gunakan format DD MM YYYY")
 	}
