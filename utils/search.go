@@ -15,22 +15,22 @@ func SeqSearch(proyekList []models.Proyek, id string) (models.Proyek, bool) {
 	return models.Proyek{}, false
 }
 
-// Binary search untuk mencari proyek berdasarkan nama proyek
-func BinSearch(proyekList []models.Proyek, nama string) (models.Proyek, bool) {
-	nama = strings.ToLower(nama)
-	left := 0
-	right := len(proyekList) - 1
+// Binary search untuk mencari proyek berdasarkan judul
+func BinSearch(proyekList []models.Proyek, judul string) (models.Proyek, bool) {
+	judul = strings.ToLower(judul)
+	kiri := 0
+	kanan := len(proyekList) - 1
 
-	for left <= right {
-		mid := (left + right) / 2
+	for kiri <= kanan {
+		mid := (kiri + kanan) / 2
 		midTitle := strings.ToLower(proyekList[mid].Judul)
-		if midTitle == nama {
+		if midTitle == judul {
 			return proyekList[mid], true
 		}
-		if midTitle < nama {
-			left = mid + 1
+		if midTitle < judul {
+			kiri = mid + 1
 		} else {
-			right = mid - 1
+			kanan = mid - 1
 		}
 	}
 	return models.Proyek{}, false

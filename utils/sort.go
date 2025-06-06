@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-// Urutkan berdasarkan judul dengan bubble sort
+// Urutkan berdasarkan judul
 func BubbleSortByJudul(proyekList *[]models.Proyek) {
 	n := len(*proyekList)
 	for i := 0; i < n-1; i++ {
@@ -17,7 +17,7 @@ func BubbleSortByJudul(proyekList *[]models.Proyek) {
 	}
 }
 
-// Mengurutkan berdasarkan ID dengan insertion sort
+// Urutkan berdasarkan ID
 func InsertionSortByID(proyekList *[]models.Proyek) {
 	for i := 1; i < len(*proyekList); i++ {
 		key := (*proyekList)[i]
@@ -30,7 +30,7 @@ func InsertionSortByID(proyekList *[]models.Proyek) {
 	}
 }
 
-// Mengurutkan berdasarkan status dengan urutan Pending > Ongoing > Selesai
+// Urutkan berdasarkan status (Pending > Ongoing > Selesai)
 func urutanStatus(status string) int {
 	switch strings.ToLower(status) {
 	case "pending":

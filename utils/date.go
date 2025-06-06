@@ -28,7 +28,7 @@ func FormatDate(input string) string {
 }
 
 // Fungsi input & validasi tanggal
-func InputDate(reader *bufio.Reader, inputTanggal string) string {
+func InputTgl(reader *bufio.Reader, inputTanggal string) string {
 	for {
 		fmt.Print(inputTanggal)
 		tanggal, _ := reader.ReadString('\n')

@@ -22,8 +22,8 @@ func TambahProyek(proyekList *[]models.Proyek) {
 	klien, _ = reader.ReadString('\n')
 	klien = strings.TrimSpace(klien)
 
-	tanggalTerima := utils.InputDate(reader, "Tanggal Terima (DD MM YYYY): ")
-	deadline := utils.InputDate(reader, "Deadline (DD MM YYYY): ")
+	tanggalTerima := utils.InputTgl(reader, "Tanggal Terima (DD MM YYYY): ")
+	deadline := utils.InputTgl(reader, "Deadline (DD MM YYYY): ")
 
 	fmt.Print("Status Pengerjaan (1: Pending, 2: Ongoing, 3: Selesai): ")
 	status, _ = reader.ReadString('\n')
