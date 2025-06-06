@@ -65,10 +65,6 @@ func LihatProyek(proyekList []models.Proyek) {
 		return
 	}
 
-	if len(proyekList) == 1 {
-		return
-	}
-
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("\nPilih urutan tampilan:")
 	fmt.Println("1. Berdasarkan Judul Proyek")
